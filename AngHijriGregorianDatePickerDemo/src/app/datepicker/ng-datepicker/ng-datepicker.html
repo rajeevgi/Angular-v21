@@ -1,0 +1,23 @@
+<p class="bg-secondary text-center text-white mt-3 p-3">ng-datepicker works!</p>
+
+<div class="container mt-4">
+
+    <!-- Normal Input -->
+    <input type="text" class="form-control mb-3" [value]="selectedDate?.gregorian || ''"
+        placeholder="Selected Gregorian Date" readonly>
+
+    <!-- Hijri Gregorian Datepicker -->
+    <hijri-gregorian-datepicker 
+        [canChangeMode]="true" 
+        [futureValidation]="false" 
+        [disableDayPicker]="false" 
+        [multiple]="false"
+        [isRequired]="true" 
+        [showConfirmButton]="true" 
+        [mode]="'greg'" 
+        [dir]="'ltr'" 
+        [locale]="'en'"
+        (onSubmit)="onDateSelect($event)">
+
+    </hijri-gregorian-datepicker>
+</div>
