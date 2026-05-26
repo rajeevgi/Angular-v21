@@ -1,0 +1,12 @@
+<p>text-editor works!</p>
+
+<editor
+[(ngModel)]="editorContent"
+[init]="tinyInit"
+></editor>
+
+<hr>
+
+<h3>Preview:</h3>
+
+<div [innerHTML]="editorContent"></div>

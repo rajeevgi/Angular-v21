@@ -1,0 +1,13 @@
+<p>ck-editor-text works!</p>
+
+<ckeditor
+    [editor]="Editor"
+    [config]="config"
+    [(ngModel)]="editorContent"
+></ckeditor>
+
+<hr>
+
+<h3>Preview:</h3>
+
+<div [innerHTML]="editorContent"></div>
