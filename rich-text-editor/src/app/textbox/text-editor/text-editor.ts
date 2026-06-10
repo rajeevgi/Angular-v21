@@ -2,31 +2,31 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { EditorModule } from '@tinymce/tinymce-angular';
 
-// import 'tinymce/tinymce';
+import 'tinymce/tinymce';
 
-// // Theme
-// import 'tinymce/themes/silver';
+// Theme
+import 'tinymce/themes/silver';
 
-// // Icons
-// import 'tinymce/icons/default';
+// Icons
+import 'tinymce/icons/default';
 
-// // Plugins
-// import 'tinymce/plugins/advlist';
-// import 'tinymce/plugins/autolink';
-// import 'tinymce/plugins/lists';
-// import 'tinymce/plugins/link';
-// import 'tinymce/plugins/image';
-// import 'tinymce/plugins/charmap';
-// import 'tinymce/plugins/preview';
-// import 'tinymce/plugins/anchor';
-// import 'tinymce/plugins/searchreplace';
-// import 'tinymce/plugins/visualblocks';
-// import 'tinymce/plugins/code';
-// import 'tinymce/plugins/fullscreen';
-// import 'tinymce/plugins/insertdatetime';
-// import 'tinymce/plugins/media';
-// import 'tinymce/plugins/table';
-// import 'tinymce/plugins/wordcount';
+// Plugins
+import 'tinymce/plugins/advlist';
+import 'tinymce/plugins/autolink';
+import 'tinymce/plugins/lists';
+import 'tinymce/plugins/link';
+import 'tinymce/plugins/image';
+import 'tinymce/plugins/charmap';
+import 'tinymce/plugins/preview';
+import 'tinymce/plugins/anchor';
+import 'tinymce/plugins/searchreplace';
+import 'tinymce/plugins/visualblocks';
+import 'tinymce/plugins/code';
+import 'tinymce/plugins/fullscreen';
+import 'tinymce/plugins/insertdatetime';
+import 'tinymce/plugins/media';
+import 'tinymce/plugins/table';
+import 'tinymce/plugins/wordcount';
 
 @Component({
   selector: 'app-text-editor',
@@ -40,6 +40,9 @@ export class TextEditor {
   editorContent = '';
 
   tinyInit = {
+    license_key: 'gpl',
+    base_url:'/tinymce',
+    suffix: '.min',
     height: 500,
     menubar: true,
 
