@@ -1,0 +1,19 @@
+<main class="page">
+  <header class="hero">
+    <div>
+      <p class="eyebrow">ANGULAR 21 • CRUD ASSIGNMENT</p>
+      <h1>Employee Management System</h1>
+      <p class="subtitle">
+        Manage employee records with Reactive Forms, RxJS, and a BehaviorSubject-backed service.
+      </p>
+    </div>
+  </header>
+
+  <app-employee-form
+    [employeeToEdit]="selectedEmployee"
+    (saved)="onSaved()"
+    (cancelled)="onCancelled()"
+  />
+
+  <app-employee-list (editRequested)="editEmployee($event)" />
+</main>

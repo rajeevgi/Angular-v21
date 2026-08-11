@@ -1,0 +1,75 @@
+<section class="card">
+  <div class="card-header list-header">
+    <div>
+      <p class="eyebrow">EMPLOYEE DIRECTORY</p>
+      <h2>Employees</h2>
+    </div>
+
+    <div class="summary">
+      <div>
+        <span>Total</span>
+        <strong>{{ totalEmployees$ | async }}</strong>
+      </div>
+      <div>
+        <span>Average Salary</span>
+        <strong>{{ averageSalary$ | async | currency:'INR':'symbol':'1.0-0' }}</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <input
+      type="search"
+      [formControl]="searchControl"
+      placeholder="Search by employee name..."
+      aria-label="Search employees by name"
+    >
+
+    <select [formControl]="sortFieldControl" aria-label="Sort employees">
+      <option value="name">Sort by Name</option>
+      <option value="department">Sort by Department</option>
+      <option value="salary">Sort by Salary</option>
+    </select>
+
+    <button type="button" class="btn btn-secondary" (click)="toggleSortDirection()">
+      {{ sortDirectionControl.value === 'asc' ? '↑ Ascending' : '↓ Descending' }}
+    </button>
+  </div>
+
+  @if (employees$ | async; as employees) {
+    @if (employees.length > 0) {
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Department</th>
+              <th>Salary</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (employee of employees; track employee.id) {
+              <tr>
+                <td class="name-cell">{{ employee.name }}</td>
+                <td>{{ employee.email }}</td>
+                <td><span class="badge">{{ employee.department }}</span></td>
+                <td>{{ employee.salary | currency:'INR':'symbol':'1.0-2' }}</td>
+                <td class="actions">
+                  <button type="button" class="btn btn-small btn-edit" (click)="edit(employee)">Edit</button>
+                  <button type="button" class="btn btn-small btn-delete" (click)="delete(employee)">Delete</button>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    } @else {
+      <div class="empty-state">
+        <h3>No employees found</h3>
+        <p>Try another name or add a new employee.</p>
+      </div>
+    }
+  }
+</section>
